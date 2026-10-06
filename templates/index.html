@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>SAHAKAR-LINK | Cooperative Training & Employment Ecosystem</title>
+<style>
+:root{
+ --navy:#103b63;--blue:#1976d2;--blue2:#eaf4ff;--green:#16865b;--green2:#eaf8f1;
+ --orange:#e98a22;--purple:#7054c7;--red:#d94d4d;--ink:#17324a;--muted:#718292;
+ --bg:#f4f7fa;--card:#fff;--line:#dce6ee;--shadow:0 8px 28px rgba(16,59,99,.07)
+}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+button,input,select{font:inherit}button{cursor:pointer;border:0}.hidden{display:none!important}
+.screen{min-height:100vh}.landing{background:linear-gradient(135deg,#eff7ff 0%,#fff 48%,#edf9f3 100%)}
+.container{width:min(1180px,92%);margin:auto}.landing-nav{height:74px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;gap:11px;align-items:center}.logo{width:43px;height:43px;border-radius:13px;background:linear-gradient(135deg,#103b63,#16865b);color:#fff;display:grid;place-items:center;font-weight:900;font-size:21px}.brand b{font-size:18px;color:var(--navy)}.brand small{display:block;color:var(--muted);font-size:9px;margin-top:2px}
+.nav-actions{display:flex;gap:10px}.btn{padding:11px 17px;border-radius:9px;font-weight:700}.btn-primary{background:var(--blue);color:#fff}.btn-light{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.hero{padding:75px 0 65px;display:grid;grid-template-columns:1.1fr .9fr;gap:55px;align-items:center}.eyebrow{display:inline-block;padding:7px 11px;background:var(--green2);color:var(--green);border-radius:20px;font-size:11px;font-weight:800}.hero h1{font-size:50px;line-height:1.08;margin:17px 0 14px;color:var(--navy)}.hero h1 span{color:var(--blue)}.hero p{font-size:16px;line-height:1.7;color:var(--muted);max-width:650px}.hero-buttons{display:flex;gap:10px;margin-top:25px}.hero-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:var(--shadow)}.hero-card h3{margin:0 0 15px}.mini-flow{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mini{padding:14px;border:1px solid var(--line);border-radius:12px;background:#fbfdff}.mini b{font-size:12px}.mini span{display:block;color:var(--muted);font-size:10px;margin-top:4px}
+.section{padding:55px 0}.section h2{text-align:center;color:var(--navy);margin:0 0 10px}.section>p{text-align:center;color:var(--muted);margin:0 auto 28px;max-width:650px}.features{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.feature{background:#fff;border:1px solid var(--line);border-radius:15px;padding:20px}.feature .fi{font-size:25px}.feature b{display:block;margin:10px 0 6px}.feature p{font-size:11px;color:var(--muted);line-height:1.5;margin:0}
+.footer{padding:25px 0;text-align:center;color:var(--muted);font-size:11px;border-top:1px solid var(--line)}
+
+.auth-wrap{min-height:100vh;display:grid;place-items:center;padding:25px;background:linear-gradient(135deg,#edf6ff,#fff,#eef9f3)}.auth{width:min(980px,100%);background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);display:grid;grid-template-columns:.85fr 1.15fr;overflow:hidden}.auth-side{padding:42px;background:linear-gradient(155deg,#103b63,#166b6d);color:#fff}.auth-side h1{font-size:31px;margin:30px 0 10px}.auth-side p{color:#d9ebf3;line-height:1.6;font-size:13px}.check{margin-top:20px;display:grid;gap:11px;font-size:12px}.auth-main{padding:38px}.auth-main h2{margin:0;color:var(--navy)}.auth-main>p{font-size:12px;color:var(--muted)}.form{display:grid;gap:13px;margin-top:20px}.field label{font-size:11px;font-weight:800;display:block;margin-bottom:6px}.field input,.field select{width:100%;padding:12px;border:1px solid var(--line);border-radius:9px;outline:none}.field input:focus,.field select:focus{border-color:var(--blue)}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.form-note{font-size:10px;color:var(--muted)}.switch{font-size:11px;color:var(--muted);text-align:center;margin-top:14px}.switch a{color:var(--blue);font-weight:800;cursor:pointer}
+
+.app{display:flex;min-height:100vh}.sidebar{width:245px;position:fixed;top:0;bottom:0;background:#fff;border-right:1px solid var(--line);padding:20px 15px;z-index:5}.side-brand{padding:0 7px 20px}.nav-title{font-size:9px;text-transform:uppercase;color:#9aa8b4;font-weight:900;padding:14px 10px 7px}.nav a{display:flex;gap:11px;padding:11px 12px;margin:3px 0;border-radius:9px;text-decoration:none;color:#556a7c;font-size:13px;font-weight:650;cursor:pointer}.nav a.active,.nav a:hover{background:var(--blue2);color:var(--blue)}.side-user{position:absolute;bottom:18px;left:15px;right:15px;padding:11px;border-radius:12px;background:#f6f9fb;font-size:10px}.main{margin-left:245px;flex:1}.top{height:70px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px;position:sticky;top:0;z-index:4}.search{background:#f6f8fa;border:1px solid var(--line);padding:9px 13px;border-radius:9px;width:290px;color:var(--muted);font-size:12px}.user{display:flex;align-items:center;gap:9px;font-size:12px}.avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#dcecff;color:var(--blue);font-weight:800}.page{padding:28px;max-width:1450px;margin:auto}.view{display:none}.view.active{display:block}.page-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.page-title h1{margin:0;font-size:25px;color:var(--navy)}.page-title p{margin:5px 0 0;color:var(--muted);font-size:12px}.cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px;box-shadow:0 3px 12px rgba(16,59,99,.035)}.stat p{margin:0;color:var(--muted);font-size:11px}.stat h2{margin:10px 0 3px;font-size:24px;color:var(--navy)}.stat small{font-size:10px;color:var(--green);font-weight:700}.two{display:grid;grid-template-columns:1.35fr .8fr;gap:16px;margin-top:17px}.section-title{font-size:15px;color:var(--navy);margin:0 0 13px}.course{display:flex;gap:13px;padding:12px 0;border-bottom:1px solid #edf1f4;align-items:center}.course:last-child{border-bottom:0}.course-icon{width:50px;height:50px;border-radius:12px;display:grid;place-items:center;background:#eaf4ff;font-size:21px}.course h3{margin:0 0 4px;font-size:13px}.course p{margin:0 0 7px;color:var(--muted);font-size:10px}.bar{height:6px;background:#edf1f5;border-radius:10px;width:210px;overflow:hidden}.bar i{display:block;height:100%;background:var(--blue);border-radius:10px}.pct{font-size:11px;font-weight:800;margin-left:auto}.journey{display:flex;gap:7px;overflow:auto}.j{min-width:110px;text-align:center;border:1px solid var(--line);border-radius:11px;padding:12px 7px}.j strong{width:25px;height:25px;display:grid;place-items:center;border-radius:50%;margin:auto auto 6px;background:var(--blue2);color:var(--blue);font-size:11px}.j b{font-size:10px}.j small{display:block;color:var(--muted);font-size:8px;margin-top:3px}
+.list{display:grid;gap:10px}.list-card{display:flex;justify-content:space-between;gap:15px;align-items:center;padding:14px;background:#fff;border:1px solid var(--line);border-radius:12px}.list-card h3{font-size:13px;margin:0 0 5px}.list-card p{font-size:10px;color:var(--muted);margin:0}.tag{display:inline-block;padding:5px 8px;border-radius:20px;background:var(--blue2);color:#27679c;font-size:9px;font-weight:800;margin:3px}.tag.green{background:var(--green2);color:var(--green)}.tag.orange{background:#fff3e3;color:#a66313}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.course-box{background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden}.course-banner{height:105px;background:linear-gradient(135deg,#eaf4ff,#edf9f3);display:grid;place-items:center;font-size:38px}.course-body{padding:15px}.course-body h3{margin:0 0 5px;font-size:14px}.course-body p{font-size:10px;color:var(--muted);line-height:1.5}.course-body .btn{font-size:10px;padding:8px 11px}
+.pipeline{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}.pipe{padding:12px 5px;border:1px solid var(--line);border-radius:10px;text-align:center;background:#fff}.pipe b{font-size:9px}.pipe small{display:block;font-size:8px;color:var(--muted);margin-top:4px}.pipe.active{border-color:#8dc6ef;background:#f1f8ff}
+.security{background:linear-gradient(135deg,#103b63,#166b6d);color:#fff;border-radius:15px;padding:22px}.security h2{margin:0 0 7px}.security p{font-size:11px;color:#d8eaf2;line-height:1.5}.sec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}.sec-grid div{padding:10px;background:rgba(255,255,255,.1);border-radius:9px;font-size:9px}.exam-shell{max-width:850px;margin:auto}.exam-top{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--line);padding:14px;border-radius:12px;margin-bottom:12px}.timer{font-weight:900;color:var(--red);background:#fff1f1;padding:9px 13px;border-radius:8px}.question{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}.question h3{font-size:16px;line-height:1.5}.option{display:block;padding:12px;border:1px solid var(--line);border-radius:9px;margin:8px 0;font-size:12px}.option:hover{background:var(--blue2);border-color:#a8d1f2}.exam-footer{display:flex;justify-content:space-between;margin-top:12px}.verify{padding:10px 13px;border-radius:9px;background:var(--green2);color:var(--green);font-size:10px;font-weight:800}
+.modal{position:fixed;inset:0;background:rgba(8,28,48,.6);z-index:30;display:none;align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modalbox{width:min(610px,100%);background:#fff;border-radius:17px;padding:25px}.modalbox h2{margin:0;color:var(--navy)}.modalbox p{font-size:12px;color:var(--muted);line-height:1.6}.role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px}.role{padding:17px;border:1px solid var(--line);border-radius:12px;text-align:left;background:#fff}.role:hover{border-color:#8dc6ef;background:var(--blue2)}.role b{display:block;margin-bottom:4px}.role small{color:var(--muted)}
+.copilot-response{background:#f8fafc;border:1px solid var(--line);padding:16px;border-radius:12px;margin-top:15px;line-height:1.6;font-size:13px;color:var(--navy)}
+@media(max-width:1050px){.cards4{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr 1fr}.pipeline{grid-template-columns:repeat(4,1fr)}.hero{grid-template-columns:1fr}.features{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.sidebar{display:none}.main{margin-left:0}.page{padding:18px}.top{padding:0 15px}.search{width:180px}.cards4,.grid3,.two{grid-template-columns:1fr}.auth{grid-template-columns:1fr}.auth-side{display:none}.row{grid-template-columns:1fr}.hero h1{font-size:38px}.features{grid-template-columns:1fr}.pipeline{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<!-- LANDING -->
+<section id="landing" class="screen landing">
+  <div class="container">
+    <nav class="landing-nav">
+      <div class="brand"><div class="logo">S</div><div><b>SAHAKAR-LINK</b><small>Cooperative Training & Employment Ecosystem</small></div></div>
+      <div class="nav-actions"><button class="btn btn-light" onclick="showAuth('login')">Sign In</button><button class="btn btn-primary" onclick="showAuth('register')">Get Started</button></div>
+    </nav>
+    <div class="hero">
+      <div>
+        <span class="eyebrow">AI + LMS + ERP + EMPLOYMENT</span>
+        <h1>From <span>Learning</span> to Livelihood.</h1>
+        <p>SAHAKAR-LINK connects programme discovery, nomination, training, assessment, certification, verified skills and employment into one cooperative ecosystem.</p>
+        <div class="hero-buttons"><button class="btn btn-primary" onclick="showAuth('register')">Create Account →</button><button class="btn btn-light" onclick="showRole()">Explore Platform</button></div>
+      </div>
+      <div class="hero-card">
+        <h3>One connected journey</h3>
+        <div class="mini-flow">
+          <div class="mini"><b>🎯 Discover</b><span>AI-assisted programme selection</span></div>
+          <div class="mini"><b>📚 Learn</b><span>LMS + multilingual support</span></div>
+          <div class="mini"><b>🔐 Assess</b><span>Course-based secure exams</span></div>
+          <div class="mini"><b>🧾 Certify</b><span>Evidence-backed credentials</span></div>
+          <div class="mini"><b>🧩 Skills</b><span>Verified skill profile</span></div>
+          <div class="mini"><b>💼 Employ</b><span>Employer skill matching</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container section">
+    <h2>Built for the whole cooperative ecosystem</h2><p>Separate role-based experiences work together through one platform.</p>
+    <div class="features">
+      <div class="feature"><div class="fi">🎓</div><b>Students & Learners</b><p>Discover programmes, learn, take secure assessments and build verified skills.</p></div>
+      <div class="feature"><div class="fi">👨‍🏫</div><b>Trainers</b><p>Manage batches, content, attendance, assessments and learner progress.</p></div>
+      <div class="feature"><div class="fi">🏛️</div><b>Administrators</b><p>Create programmes, nominate learners, govern eligibility and monitor outcomes.</p></div>
+      <div class="feature"><div class="fi">💼</div><b>Employers</b><p>Discover evidence-backed candidates and verify skills before hiring.</p></div>
+    </div>
+  </div>
+  <div class="footer">SAHAKAR-LINK • Secure • Offline-aware • Interoperable • Human-governed AI</div>
+</section>
+
+<!-- AUTH -->
+<section id="auth" class="screen auth-wrap hidden">
+  <div class="auth">
+    <div class="auth-side">
+      <div class="brand"><div class="logo" style="background:rgba(255,255,255,.18)">S</div><div><b style="color:#fff">SAHAKAR-LINK</b><small style="color:#d6e8ee">One connected ecosystem</small></div></div>
+      <h1 id="authTitle">Welcome back.</h1>
+      <p id="authSub">Sign in to continue your learning, assessment and employment journey.</p>
+      <div class="check"><span>✓ AI-assisted programme discovery</span><span>✓ Course-based learning & assessment</span><span>✓ Secure examination mode</span><span>✓ Verified skills & credentials</span><span>✓ Evidence-based employer matching</span></div>
+    </div>
+    <div class="auth-main">
+      <button class="btn btn-light" style="padding:7px 10px;font-size:10px" onclick="backLanding()">← Back</button>
+      <h2 id="formTitle" style="margin-top:18px">Sign in</h2>
+      <p id="formSub">Use your registered account.</p>
+      <form class="form" onsubmit="submitAuth(event)">
+        <div id="nameField" class="field hidden"><label>FULL NAME</label><input id="fullName" placeholder="Enter your name"></div>
+        <div class="field"><label>EMAIL / MOBILE</label><input required placeholder="name@example.com"></div>
+        <div class="field"><label>PASSWORD</label><input required type="password" placeholder="••••••••"></div>
+        <div id="roleField" class="field hidden"><label>ACCOUNT ROLE</label><select><option>Student / Learner</option><option>Trainer</option><option>Administrator</option><option>Employer</option></select></div>
+        <button class="btn btn-primary" type="submit" id="authButton">Sign In</button>
+      </form>
+      <div class="switch" id="switchText">New to SAHAKAR-LINK? <a onclick="toggleAuth()">Create an account</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROLE PICKER -->
+<div id="roleModal" class="modal">
+ <div class="modalbox"><h2>Choose your workspace</h2><p>The platform changes according to the role you use.</p>
+  <div class="role-grid">
+   <button class="role" onclick="enterApp('student')"><b>🎓 Student / Learner</b><small>Courses, exams, certificates, skills & jobs</small></button>
+   <button class="role" onclick="enterApp('trainer')"><b>👨‍🏫 Trainer</b><small>Batches, content, attendance & performance</small></button>
+   <button class="role" onclick="enterApp('admin')"><b>🏛️ Administrator</b><small>Programmes, nominations, governance & analytics</small></button>
+   <button class="role" onclick="enterApp('employer')"><b>💼 Employer</b><small>Jobs, candidates & skill verification</small></button>
+  </div>
+  <div style="text-align:right;margin-top:15px"><button class="btn btn-light" onclick="closeRole()">Close</button></div>
+ </div>
+</div>
+
+<!-- APP -->
+<section id="app" class="screen hidden">
+<div class="app">
+<aside class="sidebar">
+ <div class="side-brand"><div class="brand"><div class="logo">S</div><div><b>SAHAKAR-LINK</b><small>Cooperative ecosystem</small></div></div></div>
+ <div class="nav-title">Workspace</div>
+ <nav class="nav" id="navStudent">
+  <a class="active" data-view="dashboard">⌂ <span>Dashboard</span></a>
+  <a data-view="programmes">◈ <span>Programmes</span></a>
+  <a data-view="courses">▣ <span>My Learning</span></a>
+  <a data-view="assessment">✓ <span>Assessments</span></a>
+  <a data-view="certificates">◇ <span>Certificates</span></a>
+  <a data-view="skills">✦ <span>My Skills</span></a>
+  <a data-view="jobs">▤ <span>Jobs</span></a>
+ </nav>
+ <div class="nav-title">Platform</div>
+ <nav class="nav"><a data-view="support">? <span>AI Learning Support</span></a><a data-view="settings">⚙ <span>Settings</span></a><a onclick="logout()">↪ <span>Sign out</span></a></nav>
+ <div class="side-user"><b id="sideRole">Student / Learner</b><br><span style="color:var(--muted)">Verified account</span></div>
+</aside>
+<main class="main">
+ <header class="top"><div class="search">⌕ &nbsp; Search courses, skills, jobs...</div><div class="user"><div><b id="topName">Learner</b><br><small style="color:var(--muted)" id="topRole">Student</small></div><div class="avatar">U</div></div></header>
+ <div class="page">
+
+ <!-- DASHBOARD -->
+ <div id="dashboard" class="view active">
+  <div class="page-title"><div><h1>Good morning 👋</h1><p>Your journey from training to verified employment.</p></div><button class="btn btn-primary" onclick="showView('programmes')">Explore Programmes</button></div>
+  <div class="cards4">
+   <div class="card stat"><p>Active Courses</p><h2>3</h2><small>2 progressing</small></div><div class="card stat"><p>Learning Progress</p><h2>78%</h2><small>On track</small></div><div class="card stat"><p>Verified Skills</p><h2>12</h2><small>+4 recently</small></div><div class="card stat"><p>Job Matches</p><h2>8</h2><small>3 new</small></div>
+  </div>
+  <div class="card" style="margin-top:17px"><h3 class="section-title">Your SAHAKAR-LINK Journey</h3><div class="journey"><div class="j"><strong>1</strong><b>Discover</b><small>Programme</small></div><div class="j"><strong>2</strong><b>Nominate</b><small>Eligibility</small></div><div class="j"><strong>3</strong><b>Learn</b><small>Training</small></div><div class="j"><strong>4</strong><b>Assess</b><small>Course exam</small></div><div class="j"><strong>5</strong><b>Certify</b><small>Credential</small></div><div class="j"><strong>6</strong><b>Skills</b><small>Evidence</small></div><div class="j"><strong>7</strong><b>Employ</b><small>Matching</small></div></div></div>
+  <div class="two"><div class="card"><h3 class="section-title">Continue Learning</h3>
+   <div class="course"><div class="course-icon">🐍</div><div><h3>Python Full Stack Development</h3><p>18/24 modules • Next: REST APIs</p><div class="bar"><i style="width:75%"></i></div></div><b class="pct">75%</b></div>
+   <div class="course"><div class="course-icon">📊</div><div><h3>Data Analytics Fundamentals</h3><p>8/16 modules • Next: Power BI</p><div class="bar"><i style="width:50%"></i></div></div><b class="pct">50%</b></div>
+   <div class="course"><div class="course-icon">🤖</div><div><h3>AI & Machine Learning</h3><p>6/20 modules • Next: Model Evaluation</p><div class="bar"><i style="width:30%"></i></div></div><b class="pct">30%</b></div>
+  </div><div class="card"><h3 class="section-title">Next Action</h3><div class="security" style="padding:17px"><h2 style="font-size:16px">🔐 Final Assessment</h2><p>Python Full Stack course assessment is ready.</p><button class="btn btn-light" onclick="showView('assessment')">Review & Start</button></div><div style="margin-top:13px"><span class="tag green">Identity verified</span><span class="tag green">Liveness ready</span><span class="tag">Secure mode</span></div></div></div>
+ </div>
+
+ <!-- PROGRAMMES -->
+ <div id="programmes" class="view"><div class="page-title"><div><h1>Programme Discovery</h1><p>Explore available cooperative training programmes before choosing.</p></div></div>
+  <div class="grid3">
+   <div class="course-box"><div class="course-banner">🐍</div><div class="course-body"><h3>Python Full Stack Development</h3><p>Build practical web development skills from Python fundamentals to backend APIs and projects.</p><span class="tag">24 Modules</span><span class="tag green">Employment focused</span><br><button class="btn btn-primary" style="margin-top:12px" onclick="showView('courses')">View Programme</button></div></div>
+   <div class="course-box"><div class="course-banner">📊</div><div class="course-body"><h3>Data Analytics Fundamentals</h3><p>Learn data handling, analysis, visualization and business reporting with practical assessments.</p><span class="tag">16 Modules</span><span class="tag">Beginner</span><br><button class="btn btn-primary" style="margin-top:12px" onclick="showView('courses')">View Programme</button></div></div>
+   <div class="course-box"><div class="course-banner">🤖</div><div class="course-body"><h3>AI & Machine Learning</h3><p>Understand machine learning concepts, model development, evaluation and practical applications.</p><span class="tag">20 Modules</span><span class="tag orange">AI/ML</span><br><button class="btn btn-primary" style="margin-top:12px" onclick="showView('courses')">View Programme</button></div></div>
+  </div>
+ </div>
+
+ <!-- COURSES -->
+ <div id="courses" class="view"><div class="page-title"><div><h1>My Learning</h1><p>Course content, progress, activities and trainer support.</p></div><button class="btn btn-primary" onclick="showView('support')">Ask AI Copilot</button></div>
+  <div class="card"><h3 class="section-title">Python Full Stack Development</h3><div class="pipeline"><div class="pipe active"><b>Python</b><small>Completed</small></div><div class="pipe active"><b>SQL</b><small>Completed</small></div><div class="pipe active"><b>Frontend</b><small>Completed</small></div><div class="pipe active"><b>Backend</b><small>Current</small></div><div class="pipe"><b>APIs</b><small>Upcoming</small></div><div class="pipe"><b>Project</b><small>Upcoming</small></div><div class="pipe"><b>Assessment</b><small>Pending</small></div></div></div>
+  <div class="two"><div class="card"><h3 class="section-title">Current Module: REST APIs</h3><p style="font-size:11px;color:var(--muted);line-height:1.6">Learn API concepts, HTTP methods, endpoints, request/response handling, authentication and practical integration.</p><button class="btn btn-primary" onclick="alert('Lesson player opened')">Continue Lesson</button></div><div class="card"><h3 class="section-title">Trainer</h3><p style="font-size:12px"><b>Assigned Trainer</b><br>Training Centre Instructor</p><span class="tag green">Available</span><span class="tag">Next session: 10:30 AM</span></div></div>
+ </div>
+
+ <!-- ASSESSMENT -->
+ <div id="assessment" class="view"><div class="page-title"><div><h1>Course-Based Assessment</h1><p>The assessment is determined by the course syllabus, learning outcomes and approved question bank.</p></div></div>
+  <div class="security"><h2>🔐 Secure Examination Mode</h2><p>Before starting, the app performs identity and liveness checks and validates the available device security environment.</p><div class="sec-grid"><div>✓ Identity verification</div><div>✓ Liveness / anti-spoofing</div><div>🔒 Secure exam mode</div><div>⛔ App switching handled</div><div>⛔ Split-screen / multi-window handled</div><div>🔕 Interruptions controlled where supported</div></div><button class="btn btn-light" style="margin-top:15px" onclick="startExam()">Start Secure Exam</button></div>
+  <div class="two"><div class="card"><h3 class="section-title">Assessment Blueprint</h3><div class="list"><div class="list-card"><div><h3>Python</h3><p>Core programming + problem solving</p></div><b>30%</b></div><div class="list-card"><div><h3>SQL</h3><p>Queries + data handling</p></div><b>20%</b></div><div class="list-card"><div><h3>Web & APIs</h3><p>Frontend + REST concepts</p></div><b>30%</b></div><div class="list-card"><div><h3>Project</h3><p>Practical competency</p></div><b>20%</b></div></div></div><div class="card"><h3 class="section-title">Readiness</h3><p style="font-size:11px;color:var(--muted)">Course completion <b style="color:var(--green)">✓</b></p><p style="font-size:11px;color:var(--muted)">Attendance <b style="color:var(--green)">✓</b></p><p style="font-size:11px;color:var(--muted)">Practice assessment <b style="color:var(--green)">✓</b></p><p style="font-size:11px;color:var(--muted)">Final exam <b style="color:var(--orange)">Pending</b></p></div></div>
+ </div>
+
+ <!-- EXAM -->
+ <div id="exam" class="view"><div class="exam-shell"><div class="exam-top"><div><b>Python Full Stack — Final Assessment</b><br><small style="color:var(--muted)">Question 1 of 40</small></div><div class="timer">59:42</div></div><div class="verify">● SECURE SESSION ACTIVE &nbsp; • &nbsp; Identity verified &nbsp; • &nbsp; Liveness verified</div><div class="question" style="margin-top:10px"><h3>Which HTTP method is conventionally used to retrieve a resource from a REST API?</h3><label class="option"><input type="radio" name="q"> POST</label><label class="option"><input type="radio" name="q"> GET</label><label class="option"><input type="radio" name="q"> DELETE</label><label class="option"><input type="radio" name="q"> PATCH</label></div><div class="exam-footer"><button class="btn btn-light" onclick="showView('assessment')">Exit Exam</button><button class="btn btn-primary" onclick="alert('Answer saved')">Save & Next →</button></div></div></div>
+
+ <!-- CERTIFICATES -->
+ <div id="certificates" class="view"><div class="page-title"><div><h1>Certificates & Verification</h1><p>Credentials are supported by document extraction and issuer confirmation.</p></div><button class="btn btn-primary" onclick="alert('Upload certificate flow')">+ Add Credential</button></div>
+  <div class="list"><div class="list-card"><div><h3>Python Full Stack Development</h3><p>Issuer: Cooperative Training Partner • Certificate ID: Pending</p><span class="tag orange">Assessment pending</span></div><span class="tag">Not verified</span></div><div class="list-card"><div><h3>Power BI Fundamentals</h3><p>Issuer: Training Institute • Certificate ID: PB-2026-0182</p><span class="tag green">Issuer confirmed</span></div><span class="tag green">VERIFIED</span></div></div>
+  <div class="card" style="margin-top:15px"><h3 class="section-title">Verification process</h3><div class="journey"><div class="j"><strong>1</strong><b>Upload</b><small>Document</small></div><div class="j"><strong>2</strong><b>Extract</b><small>OCR</small></div><div class="j"><strong>3</strong><b>Validate</b><small>QR / ID</small></div><div class="j"><strong>4</strong><b>Confirm</b><small>Issuer</small></div><div class="j"><strong>5</strong><b>Review</b><small>If needed</small></div></div></div>
+ </div>
+
+ <!-- SKILLS -->
+ <div id="skills" class="view"><div class="page-title"><div><h1>Verified Skill Profile</h1><p>Skills are linked to evidence from courses, assessments, projects and verified credentials.</p></div></div>
+  <div class="two"><div class="card"><h3 class="section-title">Skill Evidence</h3><div class="tags"><span class="tag green">Python • Assessed</span><span class="tag green">SQL • Assessed</span><span class="tag green">Power BI • Verified certificate</span><span class="tag">REST APIs • Course</span><span class="tag">Data Analysis • Assessed</span><span class="tag">Machine Learning • Learning</span></div></div><div class="card"><h3 class="section-title">Profile Strength</h3><h2 style="font-size:29px;margin:8px 0;color:var(--navy)">78%</h2><p style="font-size:10px;color:var(--muted)">Based on evidence coverage and recent assessment results.</p></div></div>
+ </div>
+
+ <!-- JOBS -->
+ <div id="jobs" class="view"><div class="page-title"><div><h1>Jobs & Opportunities</h1><p>Employer matching uses job requirements and evidence-backed skills.</p></div></div>
+  <div class="list"><div class="list-card"><div><h3>Junior Python Developer</h3><p>Cooperative technology partner • Hyderabad</p><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">REST API</span></div><div style="text-align:right"><b style="color:var(--green)">92% match</b><br><button class="btn btn-primary" style="margin-top:7px;font-size:10px" onclick="alert('Viewing job details')">View Job</button></div></div><div class="list-card"><div><h3>Data Analyst Trainee</h3><p>Agri-cooperative services • Andhra Pradesh</p><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">Analytics</span></div><div style="text-align:right"><b style="color:var(--green)">87% match</b><br><button class="btn btn-primary" style="margin-top:7px;font-size:10px" onclick="alert('Viewing job details')">View Job</button></div></div></div>
+ </div>
+
+ <!-- SUPPORT -->
+ <div id="support" class="view"><div class="page-title"><div><h1>AI Learning Support</h1><p>AI assistant grounded in approved course and platform knowledge.</p></div></div><div class="card" style="max-width:850px"><div style="background:#f4f9fd;border-radius:12px;padding:15px;margin-bottom:12px"><b style="font-size:12px">AI Learning Copilot</b><p style="font-size:11px;color:var(--muted);margin:6px 0">Ask questions about your current course, concepts, assessments or learning path.</p></div><div class="field"><label>YOUR QUESTION</label><input id="copilotInput" placeholder="e.g. Explain REST APIs from my current course..."></div><button class="btn btn-primary" style="margin-top:12px" onclick="askAICopilot()">Ask AI</button><div id="copilotResult" class="hidden copilot-response"></div></div></div>
+
+ <div id="settings" class="view"><div class="page-title"><div><h1>Settings</h1><p>Account, security and platform preferences.</p></div></div><div class="card"><h3 class="section-title">Security</h3><div class="list-card"><div><h3>Two-factor authentication</h3><p>Protect your account with an additional verification step.</p></div><span class="tag green">Enabled</span></div><div class="list-card" style="margin-top:9px"><div><h3>Device sessions</h3><p>Review signed-in devices and active sessions.</p></div><button class="btn btn-light" style="font-size:10px">Manage</button></div></div></div>
+ </div>
+</main></div>
+</section>
+
+<script>
+let authMode='login', role='student';
+function showAuth(mode){authMode=mode;document.getElementById('landing').classList.add('hidden');document.getElementById('auth').classList.remove('hidden');renderAuth()}
+function renderAuth(){
+ let reg=authMode==='register';
+ document.getElementById('authTitle').textContent=reg?'Create your SAHAKAR-LINK account.':'Welcome back.';
+ document.getElementById('authSub').textContent=reg?'Create an account and choose your platform role.':'Sign in to continue your learning, assessment and employment journey.';
+ document.getElementById('formTitle').textContent=reg?'Create account':'Sign in';
+ document.getElementById('formSub').textContent=reg?'Enter your details to get started.':'Use your registered account.';
+ document.getElementById('nameField').classList.toggle('hidden',!reg);document.getElementById('roleField').classList.toggle('hidden',!reg);
+ document.getElementById('authButton').textContent=reg?'Create Account':'Sign In';
+ document.getElementById('switchText').innerHTML=reg?'Already have an account? <a onclick="toggleAuth()">Sign in</a>':'New to SAHAKAR-LINK? <a onclick="toggleAuth()">Create an account</a>';
+}
+function toggleAuth(){authMode=authMode==='login'?'register':'login';renderAuth()}
+function backLanding(){document.getElementById('auth').classList.add('hidden');document.getElementById('landing').classList.remove('hidden')}
+function submitAuth(e){e.preventDefault();showRole()}
+function showRole(){document.getElementById('roleModal').classList.add('show')}
+function closeRole(){document.getElementById('roleModal').classList.show=false;document.getElementById('roleModal').classList.remove('show')}
+function enterApp(r){role=r;closeRole();document.getElementById('landing').classList.add('hidden');document.getElementById('auth').classList.add('hidden');document.getElementById('app').classList.remove('hidden');setRole(r);showView('dashboard')}
+function setRole(r){
+ let names={student:['Learner','Student / Learner'],trainer:['Trainer','Trainer'],admin:['Administrator','Administrator'],employer:['Employer','Employer']};
+ document.getElementById('topName').textContent=names[r][0];document.getElementById('topRole').textContent=names[r][1];document.getElementById('sideRole').textContent=names[r][1];
+}
+function showView(id){
+ document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+ let el=document.getElementById(id);if(el)el.classList.add('active');
+ document.querySelectorAll('.nav a[data-view]').forEach(a=>a.addEventListener('click',()=>showView(a.dataset.view)));
+ document.querySelectorAll('.nav a[data-view]').forEach(a=>a.classList.toggle('active',a.dataset.view===id));
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.nav a[data-view]').forEach(a=>a.addEventListener('click',()=>showView(a.dataset.view)));
+function startExam(){showView('exam')}
+function logout(){document.getElementById('app').classList.add('hidden');document.getElementById('landing').classList.remove('hidden')}
+
+async function askAICopilot() {
+  const queryInput = document.getElementById("copilotInput");
+  const query = queryInput.value.trim();
+  const resultDiv = document.getElementById("copilotResult");
+  
+  if (!query) {
+    alert("Please enter a question.");
+    return;
+  }
+  
+  resultDiv.classList.remove("hidden");
+  resultDiv.innerHTML = "⏳ <b>Copilot is thinking...</b>";
+
+  try {
+    const response = await fetch("/api/v1/copilot", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question: query })
+    });
+    const data = await response.json();
+    if (data.status === "success") {
+      resultDiv.innerHTML = "<b>Copilot Answer:</b><br><br>" + data.response;
+    } else {
+      resultDiv.innerText = "Error: Could not retrieve answer.";
+    }
+  } catch (err) {
+    resultDiv.innerText = "Error contacting AI Copilot endpoint.";
+  }
+}
+</script>
+</body>
+</html>
